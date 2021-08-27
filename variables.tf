@@ -71,3 +71,11 @@ variable "sns_topic_name" {
   description = "Specifies the name of the Amazon SNS topic defined for notification of log file delivery"
   default     = null
 }
+
+variable "insight_selector" {
+  type = object({
+    insight_type = string
+  })
+  description = "Generate a configuration block for identifying unusual operational activity. See: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudtrail#insight_selector for details on this variable"
+  default = null
+}

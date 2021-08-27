@@ -28,4 +28,11 @@ resource "aws_cloudtrail" "default" {
       }
     }
   }
+
+  dynamic "insight_selector" {
+    for_each = var.insight_selector != null ? [1] : []
+    content {
+      insight_type = var.insight_selector.insight_type
+    }
+  }
 }
